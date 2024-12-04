@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes borderAppear {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.animate-border-appear {
+  animation: borderAppear 0.5s ease-in-out forwards;
+  opacity: 0; /* Ensures a smooth transition */
+}
