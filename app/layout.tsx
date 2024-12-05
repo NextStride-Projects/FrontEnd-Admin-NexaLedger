@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import AppBar from "@/app/components/AppBar"; // Import the AppBar
 import "./globals.css";
 
 const geistSans = localFont({
@@ -29,9 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-gray-200 antialiased`}
       >
-        {/* Add AppBar */}
-        <AppBar />
-        <main className="m-8 bg-white rounded">{children}</main>
+        {children}
       </body>
     </html>
   );

@@ -108,7 +108,7 @@ export default async function EmpresasTable({
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-between items-center mt-4">
+        <div className="border-t border-gray-300 rounded flex justify-between items-center pt-4">
           <Link
             href={{
               pathname: "/dashboard/empresas",
