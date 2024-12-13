@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FiLogOut, FiMenu } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import LogoutButton from "@/app/components/LogoutButton";
+import Link from "next/link";
 
 export default function AppBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -44,7 +45,9 @@ export default function AppBar() {
             </button>
 
             {/* Title */}
-            <h1 className="text-2xl font-semibold">NexaLedger Admin Board</h1>
+            <h1 className="text-2xl font-semibold">
+              <Link href="/dashboard/empresas">NexaLedger Admin Board</Link>
+            </h1>
           </div>
 
           {/* Logout Button */}

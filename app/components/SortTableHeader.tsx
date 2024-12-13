@@ -9,6 +9,7 @@ interface SortableHeaderProps {
   currentSortBy: string;
   currentSortDirection: string;
   searchParams: Record<string, string | undefined>;
+  route: string;
 }
 
 export default function SortableHeader({
@@ -17,6 +18,7 @@ export default function SortableHeader({
   currentSortBy,
   currentSortDirection,
   searchParams,
+  route
 }: SortableHeaderProps) {
   const isActive = currentSortBy === sortByField;
   const nextSortDirection =
@@ -25,7 +27,7 @@ export default function SortableHeader({
   return (
     <Link
       href={{
-        pathname: "/dashboard/registros",
+        pathname: `/dashboard/${route}`,
         query: {
           ...searchParams,
           sortBy: sortByField,

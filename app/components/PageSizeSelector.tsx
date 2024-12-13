@@ -3,7 +3,11 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
-export default function PageSizeSelector() {
+interface SelectorProps {
+  route: string;
+}
+
+export default function PageSizeSelector({ route }: SelectorProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -22,7 +26,7 @@ export default function PageSizeSelector() {
     params.set("pageSize", newSize);
     params.set("page", "1"); // Reset to first page when page size changes
 
-    router.push(`/dashboard/registros?${params.toString()}`);
+    router.push(`/dashboard/${route}?${params.toString()}`);
   };
 
   return (

@@ -43,12 +43,12 @@ export default async function EmpresasTable({
         <EmpresaFilters />
 
         {/* Page Size Selector */}
-        <PageSizeSelector />
+        <PageSizeSelector route="empresas"/>
 
         <div className="rounded-lg overflow-auto h-[500px] flex items-start justify-center">
           {empresas.length > 0 ? (
             <table className="w-full bg-white">
-              <thead className="bg-green-800 text-white">
+              <thead className="bg-green-800 text-white sticky top-0 z-10">
                 <tr>
                   <th>
                     <SortableHeader
@@ -57,6 +57,7 @@ export default async function EmpresasTable({
                       currentSortBy={sortBy}
                       currentSortDirection={sortDirection}
                       searchParams={searchParams}
+                      route="empresas"
                     />
                   </th>
                   <th>
@@ -66,6 +67,7 @@ export default async function EmpresasTable({
                       currentSortBy={sortBy}
                       currentSortDirection={sortDirection}
                       searchParams={searchParams}
+                      route="empresas"
                     />
                   </th>
                   <th className="px-4 py-2 text-left font-medium">Dirección</th>
@@ -84,13 +86,13 @@ export default async function EmpresasTable({
                   >
                     <td className="px-4 py-2 text-gray-900">{empresa.id}</td>
                     <td className="px-4 py-2 text-gray-900">
-                      {empresa.nombre}
+                      {empresa.fullName}
                     </td>
                     <td className="px-4 py-2 text-gray-900">
-                      {empresa.direccion}
+                      {empresa.location}
                     </td>
                     <td className="px-4 py-2 text-gray-900">
-                      {empresa.telefono}
+                      {empresa.phone}
                     </td>
                     <td className="px-4 py-2 text-gray-900">{empresa.email}</td>
                     <td className="px-4 py-2 text-gray-900 text-right">

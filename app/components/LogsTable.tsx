@@ -42,13 +42,13 @@ export default async function LogsTable({ searchParams }: LogsTableProps) {
       {/* Filters */}
       <LogsFilters />
 
-      <PageSizeSelector />
+      <PageSizeSelector route="registros"/>
 
       {/* Table */}
       <div className="rounded-lg overflow-auto h-[500px] flex items-start justify-center">
         {logs.length > 0 ? (
           <table className="w-full bg-white">
-            <thead className="bg-green-800 text-white">
+            <thead className="bg-green-800 text-white sticky top-0 z-10">
               <tr>
                 <th>
                   <SortableHeader
@@ -57,6 +57,7 @@ export default async function LogsTable({ searchParams }: LogsTableProps) {
                     currentSortBy={sortBy}
                     currentSortDirection={sortDirection}
                     searchParams={searchParams}
+                    route="registros"
                   />
                 </th>
                 <th className="px-4 py-2 text-left font-medium">Acción</th>
@@ -75,6 +76,7 @@ export default async function LogsTable({ searchParams }: LogsTableProps) {
                     currentSortBy={sortBy}
                     currentSortDirection={sortDirection}
                     searchParams={searchParams}
+                    route="registros"
                   />
                 </th>
               </tr>

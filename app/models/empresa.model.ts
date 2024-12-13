@@ -1,8 +1,6 @@
 export interface Empresa {
   id: number;
-  nombre: string;
-  direccion: string;
-  telefono: string;
+  phone: string;
   email: string;
   fullName: string;
   description: string | null;
@@ -10,8 +8,7 @@ export interface Empresa {
   category: string;
   location: string;
   active: boolean;
-  features: string | null;
+  features: string;
   responsiblePerson: string;
   responsibleEmail: string;
-  staffCount: number;
 }
