@@ -28,7 +28,7 @@ async function fetchEmpresas(params: FetchEmpresasParams): Promise<{
     pageSize: pageSize.toString(),
     sortBy,
     sortDirection,
-    ...(nombre && { nombre }),
+    ...(nombre && { fullName: nombre }),
   });
 
   const response = await fetch(

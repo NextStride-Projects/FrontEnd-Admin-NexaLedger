@@ -1,30 +1,25 @@
-"use client";
-
-import React, { useState } from "react";
 import EmpresaDetails from "./EmpresaDetails";
-import EmpresaUsers from "./EmpresaUsers";
 import { Empresa } from "../models/empresa.model";
+import EmpresaUsers from "./EmpresaUsers";
 
 interface EmpresaTabsProps {
   empresa: Empresa;
+  tab?: string;
 }
 
-export default function EmpresaTabs({ empresa }: EmpresaTabsProps) {
-  const [activeTab, setActiveTab] = useState("detalles");
-
-  const handleTabClick = (tab: string) => {
-    setActiveTab(tab);
-  };
+export default function EmpresaTabs({
+  empresa,
+  tab,
+}: EmpresaTabsProps) {
+  const activeTab = tab || "detalles";
 
   return (
     <div>
-      {/* Tabs */}
       <div className="relative flex items-center gap-4 mb-4">
-        {/* Header Bottom Border */}
         <div className="absolute bottom-0 left-0 right-0 border-b border-green-800 z-0"></div>
 
-        <button
-          onClick={() => handleTabClick("detalles")}
+        <a
+          href={`?tab=detalles`}
           className={`px-4 py-2 text-sm font-medium transition-all duration-300 relative z-10 ${
             activeTab === "detalles"
               ? "border border-green-800 border-b-white bg-white rounded-t text-black"
@@ -32,9 +27,9 @@ export default function EmpresaTabs({ empresa }: EmpresaTabsProps) {
           }`}
         >
           Detalles de la Empresa
-        </button>
-        <button
-          onClick={() => handleTabClick("usuarios")}
+        </a>
+        <a
+          href={`?tab=usuarios`}
           className={`px-4 py-2 text-sm font-medium transition-all duration-300 relative z-10 ${
             activeTab === "usuarios"
               ? "border border-green-800 border-b-white bg-white rounded-t text-black"
@@ -42,7 +37,7 @@ export default function EmpresaTabs({ empresa }: EmpresaTabsProps) {
           }`}
         >
           Usuarios de la Empresa
-        </button>
+        </a>
       </div>
 
       {/* Tab Content */}
@@ -55,11 +50,10 @@ export default function EmpresaTabs({ empresa }: EmpresaTabsProps) {
 
         {activeTab === "usuarios" && (
           <div className="w-full">
-            <EmpresaUsers empresaId={empresa.id.toString()} />
+            <EmpresaUsers empresaId={String(empresa.id)} />
           </div>
         )}
       </div>
     </div>
   );
 }
-

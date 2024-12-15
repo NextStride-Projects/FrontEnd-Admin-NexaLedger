@@ -150,7 +150,6 @@ export default async function LogsTable({ searchParams }: LogsTableProps) {
 }
 
 // Fetch logs with query parameters
-// Fetch logs with query parameters
 async function fetchLogs({
   page,
   pageSize,
@@ -191,12 +190,10 @@ async function fetchLogs({
   );
 
   if (!response.ok) {
-    // Get error message from the response body
     const errorData = await response.json();
 
     const errorMessage = errorData.error || "Failed to fetch logs";
 
-    // Throw an error with the status code and message
     throw new Error(`Error ${response.status}: ${errorMessage}`);
   }
 
